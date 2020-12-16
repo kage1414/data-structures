@@ -23,6 +23,7 @@ var Stack = function() {
       someInstance[i] = someInstance[i + 1];
     }
 
+    storage.length -= 1;
     return popped;
 
   };
