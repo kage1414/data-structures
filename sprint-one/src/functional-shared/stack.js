@@ -11,19 +11,11 @@ var Stack = function() {
 
 var stackMethods = {
   push: function(value) {
-
-    for (var i = this.length - 1; i >= 0; i--) {
-      this.storage[i + 1] = this.storage[i];
-    }
-
-    this.storage[0] = value;
+    this.storage[this.length] = value;
     this.length += 1;
   },
   pop: function() {
-    var popped = this.storage[0];
-    for (var i = 0; i < this.length; i++) {
-      this.storage[i] = this.storage[i + 1];
-    }
+    var popped = this.storage[this.length - 1];
     delete this.storage[length - 1];
     if (this.length > 0) {
       this.length -= 1;
