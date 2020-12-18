@@ -1,5 +1,8 @@
 var Queue = function() {
-  var someInstance = { 'length': 0};
+  var someInstance = {
+    'head': 0,
+    'tail': 0
+  };
 
   // Use an object with numeric keys to store values
   var storage = {};
@@ -7,24 +10,21 @@ var Queue = function() {
   // Implement the methods below
 
   someInstance.enqueue = function(value) {
-    storage[someInstance.length] = value;
-    someInstance.length += 1;
+    storage[someInstance.tail] = value;
+    someInstance.tail += 1;
   };
 
   someInstance.dequeue = function() {
-    var dequeued = storage[0];
-    if (someInstance.length > 0) {
-      for (var i = 0; i < someInstance.length; i++) {
-        storage[i] = storage[i + 1];
-      }
-      delete storage[someInstance.length];
-      someInstance.length -= 1;
+    var dequeued = storage[someInstance.head];
+    delete storage[someInstance.head];
+    if (someInstance.head < someInstance.tail) {
+      someInstance.head += 1;
     }
     return dequeued;
   };
 
   someInstance.size = function() {
-    return someInstance.length;
+    return someInstance.tail - someInstance.head;
   };
 
   return someInstance;
