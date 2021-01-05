@@ -27,7 +27,7 @@ treeMethods.contains = function(target) {
   if (this.children.length > 0) {
     for (var i = 0; i < this.children.length; i++) {
       // Check to see if each branch has it's own children.
-      this.children[i].contains(target);
+      return this.children[i].contains(target);
     }
   }
   return false;
