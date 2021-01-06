@@ -27,15 +27,13 @@ treeMethods.contains = function(target) {
   if (this.children.length > 0) {
     for (var i = 0; i < this.children.length; i++) {
       // Check to see if each branch has it's own children.
-      return this.children[i].contains(target);
+      if (this.children[i].contains(target)) {
+        return true;
+      }
     }
   }
   return false;
 };
-
-// var newTree = Tree(4);
-// newTree.addChild(5)
-// newTree.addChild(6)
 
 /*
  * Complexity: What is the time complexity of the above functions?
