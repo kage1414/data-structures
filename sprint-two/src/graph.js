@@ -28,7 +28,6 @@ Graph.prototype.removeNode = function(node) {
   for (var key in this.nodes) {
     // check if that node has a connection to the edge
     if (this.nodes[key][node]) {
-      console.log('node deleted');
       delete this.nodes[key][node];
     }
   }
