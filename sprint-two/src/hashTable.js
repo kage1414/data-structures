@@ -10,34 +10,54 @@ HashTable.prototype.insert = function(k, v) {
   var index = getIndexBelowMaxForKey(k, this._limit);
   // do something with the value 'v'
   if (!this._storage.get(index)) {
-    var obj = {};
-    obj[k] = v;
-    this._storage.set(index, obj);
+    var arr = [];
+    arr.push([k, v]);
+    this._storage.set(index, arr);
   } else {
-    var obj = this._storage.get(index);
-    obj[k] = v;
-    this._storage.set(index, obj);
+    var arr = this._storage.get(index);
+    // this._storage.set(index, arr);
+    for (var i = 0; i < arr.length; i++) {
+      if (arr[i][0] === k) {
+        arr[i][1] = v;
+        var overwritten = true;
+        break;
+      }
+    }
+
+    if (!overwritten) {
+      arr.push([k, v]);
+    }
+
+    this._storage.set(index, arr);
   }
 };
 
 HashTable.prototype.retrieve = function(k) {
   var index = getIndexBelowMaxForKey(k, this._limit);
-  var obj = this._storage.get(index);
-  return obj[k];
+  var arr = this._storage.get(index);
+  if (arr === undefined) {
+    return undefined;
+  }
+  for (var i = 0; i < arr.length; i++) {
+    if (arr[i][0] === k) {
+      return arr[i][1];
+    }
+  }
 };
 
 HashTable.prototype.remove = function(k) {
   var index = getIndexBelowMaxForKey(k, this._limit);
-  this._storage.each( function(val, key, storageArray) {
-    console.log([k, val, key, storageArray]);
-    // if there are no collisions in that hashed index
-
-    // if there are collisions (more than 1 key in the obj)
-    if (val[key]) {
-      delete val[key];
+  var arr = this._storage.get(index);
+  if (arr.length === 1) {
+    this._storage.set(index, undefined);
+  } else {
+    for (var i = 0; i < arr.length; i++) {
+      if (arr[i][0] === k) {
+        arr.splice(i, 1);
+      }
     }
+    this._storage.set(index, arr);
   }
-  );
 };
 
 limitedArray.set = function(index, value) {
@@ -50,8 +70,9 @@ limitedArray.set = function(index, value) {
 
 // var storage = [0];
 // storage[0] = 'holmes'
-// storage[0] = {'sherlock': 'holmes', 'sam': 'holmes'}
+// storage[0] = [['sherlock': 'holmes'], ['sam': 'holmes']]
 // storage[1] = {}
+
 
 // delete storage[0]['sherlock']
 
