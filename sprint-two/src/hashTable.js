@@ -60,32 +60,6 @@ HashTable.prototype.remove = function(k) {
   }
 };
 
-limitedArray.set = function(index, value) {
-  checkLimit(index);
-  storage[index] = value;
-};
-
-// hashtable.remove('sherlock')
-
-
-// var storage = [0];
-// storage[0] = 'holmes'
-// storage[0] = [['sherlock': 'holmes'], ['sam': 'holmes']]
-// storage[1] = {}
-
-
-// delete storage[0]['sherlock']
-
-// date of birth | key | value
-// 1/01/1990 | 'sherlock' | 'holmes'
-// 1/01/1990 | 'sam' | 'holmes'
-
-// hash key = 0 {'sherlock': 'holmes'}
-// hash key = 0 {'sam': 'holmes'}
-
-// function (key) { returns key[0]}
-// limit = 2
-
 
 /*
  * Complexity: What is the time complexity of the above functions?

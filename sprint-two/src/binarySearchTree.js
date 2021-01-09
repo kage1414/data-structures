@@ -47,16 +47,6 @@ var bstTreeMethods = {
 
 };
 
-// .insert = first value top
-
-// var newBST = BinarySearchTree(8)
-// newBST.dephFirstLog(callback)
-
-
-//     5
-// 2       7
-//   3   6
-
 /*
  * Complexity: What is the time complexity of the above functions?
  */
