@@ -17,6 +17,7 @@ treeMethods.addChild = function(value) {
   var childTree = Tree(value);
   this.children.push(childTree);
 };
+// Constant Time
 
 treeMethods.contains = function(target) {
   // Check if parent is target
@@ -34,6 +35,7 @@ treeMethods.contains = function(target) {
   }
   return false;
 };
+// Linear Time
 
 /*
  * Complexity: What is the time complexity of the above functions?

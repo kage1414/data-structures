@@ -9,7 +9,7 @@ var BinarySearchTree = function(val) {
 };
 
 var bstTreeMethods = {
-  insert: function (val) {
+  insert: function(val) {
     if (val < this.value) {
       if (this.left) {
         this.left.insert(val);
@@ -24,6 +24,7 @@ var bstTreeMethods = {
       }
     }
   },
+  // Log Time
   contains: function(val) {
     if (this.value === val) {
       return true;
@@ -35,6 +36,7 @@ var bstTreeMethods = {
 
     return false;
   },
+  // Log Time
   depthFirstLog: function(callback) {
     callback(this.value);
     if (this.left) {
@@ -44,10 +46,10 @@ var bstTreeMethods = {
       this.right.depthFirstLog(callback);
     }
   }
+  // Linear Time
 
 };
 
 /*
  * Complexity: What is the time complexity of the above functions?
  */
-

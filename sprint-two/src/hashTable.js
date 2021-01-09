@@ -15,7 +15,6 @@ HashTable.prototype.insert = function(k, v) {
     this._storage.set(index, arr);
   } else {
     var arr = this._storage.get(index);
-    // this._storage.set(index, arr);
     for (var i = 0; i < arr.length; i++) {
       if (arr[i][0] === k) {
         arr[i][1] = v;
@@ -31,6 +30,7 @@ HashTable.prototype.insert = function(k, v) {
     this._storage.set(index, arr);
   }
 };
+// Constant Time
 
 HashTable.prototype.retrieve = function(k) {
   var index = getIndexBelowMaxForKey(k, this._limit);
@@ -44,6 +44,7 @@ HashTable.prototype.retrieve = function(k) {
     }
   }
 };
+// Constant Time
 
 HashTable.prototype.remove = function(k) {
   var index = getIndexBelowMaxForKey(k, this._limit);
@@ -59,10 +60,9 @@ HashTable.prototype.remove = function(k) {
     this._storage.set(index, arr);
   }
 };
+// Constant Time
 
 
 /*
  * Complexity: What is the time complexity of the above functions?
  */
-
-

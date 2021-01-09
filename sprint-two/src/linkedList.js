@@ -15,6 +15,7 @@ var LinkedList = function() {
       list.tail = newNode;
     }
   };
+  // Constant Time
 
   list.removeHead = function() {
     // assign a temporary variable to the head
@@ -22,6 +23,7 @@ var LinkedList = function() {
     list.head = list.head.next;
     return oldHead;
   };
+  // Constant Time
 
   list.contains = function(target) {
     // check values of both the head and the tail first
@@ -43,6 +45,7 @@ var LinkedList = function() {
     // return false otherwise
     return false;
   };
+  // Linear Time
 
   return list;
 };

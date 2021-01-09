@@ -51,12 +51,14 @@ Graph.prototype.addEdge = function(fromNode, toNode) {
   this.nodes[fromNode][toNode] = true;
   this.nodes[toNode][fromNode] = true;
 };
+// Constant Time
 
 // Remove an edge between any two specified (by value) nodes.
 Graph.prototype.removeEdge = function(fromNode, toNode) {
   delete this.nodes[fromNode][toNode];
   delete this.nodes[toNode][fromNode];
 };
+// Constant Time
 
 // Pass in a callback which will be executed on each node of the graph.
 Graph.prototype.forEachNode = function(cb) {
@@ -64,6 +66,7 @@ Graph.prototype.forEachNode = function(cb) {
     cb(key);
   }
 };
+// Linear Time
 
 /*
  * Complexity: What is the time complexity of the above functions?
