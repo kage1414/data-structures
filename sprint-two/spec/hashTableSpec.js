@@ -46,6 +46,13 @@ describe('hashTable', function() {
     expect(hashTable.retrieve(v2)).to.equal(v2);
     window.getIndexBelowMaxForKey = oldHashFunction;
   });
+  it('should return undefined when a value is removed', function() {
+    hashTable.insert('hello', 'world');
+    hashTable.insert('foo', 'bar');
+    hashTable.remove('hello');
+    expect(hashTable.retrieve('hello')).to.equal(undefined);
+    expect(hashTable.retrieve('world')).to.equal(undefined);
+  });
 
   // (Advanced! Remove the extra "x" when you want the following tests to run)
   xit ('should double in size when needed', function() {

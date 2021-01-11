@@ -50,6 +50,11 @@ describe('linkedList', function() {
     linkedList.removeHead();
     expect(linkedList.contains(4)).to.equal(false);
   });
+  it('should return null if the next value of the tail is called', function() {
+    linkedList.addToTail(5);
+    linkedList.addToTail(8);
+    expect(linkedList.tail.next).to.equal(null);
+  });
 
   // add more tests here to test the functionality of linkedList
 });

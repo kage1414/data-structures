@@ -37,4 +37,16 @@ describe('binarySearchTree', function() {
     binarySearchTree.depthFirstLog(func);
     expect(array).to.eql([5, 2, 3, 7]);
   });
+  it('should contain all unique keys with no duplicates', function() {
+    var arr = [];
+    var func = function(value) { arr.push(value); };
+    binarySearchTree.insert(4);
+    binarySearchTree.insert(7);
+    binarySearchTree.insert(1);
+    binarySearchTree.insert(2);
+    binarySearchTree.insert(1);
+    binarySearchTree.insert(7);
+    binarySearchTree.depthFirstLog(func);
+    expect(arr.sort()).to.eql([5, 4, 7, 1, 2].sort());
+  });
 });

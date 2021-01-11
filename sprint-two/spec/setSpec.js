@@ -23,5 +23,12 @@ describe('set', function() {
     set.remove('Mel Gibson');
     expect(set.contains('Mel Gibson')).to.equal(false);
   });
+  it ('should not contain duplicate values', function() {
+    set.add('Maya Rudolph');
+    set.add('Amy Poehler');
+    set.add('Andy Samberg');
+    expect(typeof set).to.equal('object');
+    expect(Array.isArray(set)).to.equal(false);
+  });
 
 });
